@@ -599,7 +599,7 @@ class FieldCodeGenerator
             return;
         }
 
-        $this->data->serialize->beginControlFlow("if (\$data->get".ucfirst($this->name)."() == null)");
+        $this->data->serialize->beginControlFlow("if (\$data->get".ucfirst($this->name)."() === null)");
         $this->data->serialize->addLine("throw new SerializationError('{$this->name} must be provided.');");
         $this->data->serialize->endControlFlow();
         $this->data->serialize->addImport("SerializationError", "Eolib\\Protocol");
